@@ -50,6 +50,32 @@ apis:
     /banking/products and GET /banking/products/{productId}. Confirmed live (HTTP
     200, x-v 4, 28 products) at https://api.auswidebank.com.au/openbanking/cds-au/v1.
 common:
+- type: DomainSecurity
+  url: security/auswide-bank-domain-security.yml
+- type: Authentication
+  url: authentication/auswide-bank-authentication.yml
+- type: OAuthScopes
+  url: scopes/auswide-bank-scopes.yml
+- type: Conformance
+  url: conformance/auswide-bank-conformance.yml
+- type: ErrorCatalog
+  url: errors/auswide-bank-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/auswide-bank-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/auswide-bank-lifecycle.yml
+- type: Conventions
+  url: conventions/auswide-bank-conventions.yml
+- type: DataModel
+  url: data-model/auswide-bank-data-model.yml
+- type: Overlay
+  url: overlays/auswide-bank-cds-banking-products-overlay.yaml
+- type: LLMsTxt
+  url: llms/auswide-bank-llms.txt
+- type: MCPServer
+  url: mcp/auswide-bank-mcp.yml
+- type: AgentSkill
+  url: skills/auswide-bank-product-lookup.md
 - type: Website
   url: https://www.auswidebank.com.au/
 - type: Documentation

@@ -1,0 +1,28 @@
+# Auswide Bank
+
+> Auswide Bank Ltd is an Australian authorised deposit-taking institution (ADI) and an active Consumer Data Right (CDR) data holder. It exposes a public, unauthenticated Product Reference Data (PRD) API conforming to the DSB Consumer Data Standards, alongside the accredited-data-recipient consumer-data-sharing channels required of every Australian bank. Auswide is now a division of MyState Bank Limited (ASX: MYS) following the 2025 merger.
+
+## APIs
+
+- [Auswide Bank CDR Product Reference Data API](https://www.auswidebank.com.au/help/banking-support/open-banking/): Public, unauthenticated CDR Product Reference Data (PRD) API exposing Auswide's publicly available banking products via GET /banking/products and GET /banking/products/{productId}. Live base: https://api.auswidebank.com.au/openbanking/cds-au/v1 (HTTP 200, x-v 4, 28 products).
+
+## Specs
+
+- [OpenAPI (CDR Banking API v1.36.0, shared DSB standard)](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/openapi/auswide-bank-cds-banking-products-openapi.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/authentication/auswide-bank-authentication.yml)
+- [OAuth scopes (CDR banking, consumer-data channel)](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/scopes/auswide-bank-scopes.yml)
+- [Conventions (versioning, pagination, error envelope)](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/conventions/auswide-bank-conventions.yml)
+- [Error catalog (CDS ResponseErrorListV2 + urn:au-cds registry)](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/errors/auswide-bank-problem-types.yml)
+- [Lifecycle / versioning](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/lifecycle/auswide-bank-lifecycle.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/conformance/auswide-bank-conformance.yml)
+- [Data model / ERD](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/data-model/auswide-bank-data-model.yml)
+- [Agent skill: product lookup](https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/skills/auswide-bank-product-lookup.md)
+
+## Docs
+
+- [Auswide Bank Open Banking (CDR) information](https://www.auswidebank.com.au/help/banking-support/open-banking/)
+- [DSB Consumer Data Standards — Banking APIs](https://consumerdatastandardsaustralia.github.io/standards/#banking-apis)
+- [Auswide Bank website](https://www.auswidebank.com.au/)
+- [Privacy policy](https://www.auswidebank.com.au/about/privacy-policy/)
+- [Website terms of use](https://www.auswidebank.com.au/about/website-terms-of-use/)
+- [Contact / support](https://www.auswidebank.com.au/about/contact-us/)

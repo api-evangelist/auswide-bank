@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+note: >-
+  Probed the well-known discovery surface on both Auswide hosts on 2026-07-20.
+  No documents returned 200. The CDR OIDC discovery document is published on the
+  ADR-facing infosec baseline endpoint (behind MTLS/accreditation), not on the
+  public hosts. Recorded for auditability; no WellKnown catalog pointer is wired
+  because nothing was found.
+hosts:
+- host: https://api.auswidebank.com.au
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.auswidebank.com.au
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}

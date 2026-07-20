@@ -1,0 +1,7 @@
+generated: '2026-07-20'
+method: generated
+skills:
+- file: auswide-bank-product-lookup.md
+  name: Look up Auswide Bank banking products
+  api: openapi/auswide-bank-cds-banking-products-openapi.yml
+  operations: [listBankingProducts, getBankingProductDetail]

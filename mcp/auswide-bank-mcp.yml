@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/auswide-bank-cds-banking-products-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for Auswide Bank. This is a
+  candidate tool list derived from the two public, unauthenticated Product
+  Reference Data operations (the only endpoints callable without CDR ADR
+  accreditation and consumer consent).
+server:
+  name: auswide-bank
+  transport: http
+tools:
+- name: list_banking_products
+  description: >-
+    List Auswide Bank's publicly available banking products (accounts, term
+    deposits, home loans, credit cards). Supports effective (CURRENT/FUTURE/ALL),
+    updated-since, brand, product-category filters and page/page-size pagination.
+    Requires the x-v request header (currently 4).
+  source_operation: openapi/auswide-bank-cds-banking-products-openapi.yml#listBankingProducts
+  auth: none
+- name: get_banking_product_detail
+  description: >-
+    Retrieve the full detail for one product by productId, including features,
+    constraints, eligibility, fees, deposit rates, lending rates, bundles and
+    instalments. Requires the x-v request header.
+  source_operation: openapi/auswide-bank-cds-banking-products-openapi.yml#getBankingProductDetail
+  auth: none
