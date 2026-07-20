@@ -1,0 +1,67 @@
+aid: auswide-bank
+url: https://raw.githubusercontent.com/api-evangelist/auswide-bank/refs/heads/main/apis.yml
+name: Auswide Bank
+kind: company
+description: Auswide Bank Ltd is an Australian authorised deposit-taking institution
+  (ADI) headquartered in Bundaberg, Queensland, offering home loans, savings and
+  transaction accounts, term deposits, credit cards, and personal and business banking.
+  Formerly Wide Bay Australia and previously ASX-listed (ABA), Auswide is now a
+  division of MyState Bank Limited, a wholly owned subsidiary of the ASX-listed
+  MyState Limited (ASX MYS) following the 2025 merger. As an active CDR data holder
+  under Australia's Consumer Data Right (Open Banking), Auswide exposes a public,
+  unauthenticated Product Reference Data (PRD) API conforming to the DSB Consumer
+  Data Standards, alongside the accredited-data-recipient consumer data sharing
+  channels required of every Australian bank.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Banks
+- Open Banking
+- CDR
+- Consumer Banking
+- Australia
+- Product Reference Data
+- ADI
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: auswide-bank:auswide-bank-cdr-product-reference-data-api
+  name: Auswide Bank CDR Product Reference Data API
+  tags:
+  - CDR
+  - Open Banking
+  - Product Reference Data
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.auswidebank.com.au/help/banking-support/open-banking/
+  baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1
+  properties:
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
+    type: APIReference
+  - url: openapi/auswide-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Consumer Data Right Product Reference Data
+    (PRD) API exposing Auswide Bank's publicly available banking products (accounts,
+    term deposits, home loans, credit cards) via the standard CDS endpoints GET
+    /banking/products and GET /banking/products/{productId}. Confirmed live (HTTP
+    200, x-v 4, 28 products) at https://api.auswidebank.com.au/openbanking/cds-au/v1.
+common:
+- type: Website
+  url: https://www.auswidebank.com.au/
+- type: Documentation
+  url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/auswide-bank-ltd/
+- type: PrivacyPolicy
+  url: https://www.auswidebank.com.au/about/privacy-policy/
+- type: TermsOfService
+  url: https://www.auswidebank.com.au/about/website-terms-of-use/
+- type: Support
+  url: https://www.auswidebank.com.au/about/contact-us/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

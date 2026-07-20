@@ -1,0 +1,81 @@
+aid: auswide-bank
+name: Auswide Bank
+review:
+  question: Does Auswide Bank expose a live public CDR Product Reference Data API, and does it run any developer portal beyond the mandated Consumer Data Right surface?
+  answer: true
+  date: '2026-07-20'
+  reviewer: API Evangelist
+  cdrPrdConfirmed: true
+  developerPortal: false
+  specProvenance: DSB Consumer Data Standards (shared standard) - not a bank-proprietary contract
+findings:
+  summary: |
+    Auswide Bank Ltd is an active Consumer Data Right (CDR) data holder. Its
+    public, unauthenticated Product Reference Data (PRD) API is confirmed live:
+    GET https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/products
+    returns HTTP 200 with header x-v: 4 and a data.products array of 28 products
+    (meta.totalRecords 28, totalPages 14). This is the only publicly documented,
+    unauthenticated API surface. Auswide does NOT operate a broader developer
+    portal - developer.auswidebank.com.au does not resolve (DNS failure), and
+    there is no Up-style personal-banking developer API. The bank's human-facing
+    open banking information page lives at
+    https://www.auswidebank.com.au/help/banking-support/open-banking/ (HTTP 200).
+    All other CDR banking APIs (accounts, transactions, payees, direct debits,
+    balances) are consumer-data endpoints that are NOT public: they require the
+    accredited-data-recipient (ADR) model with OAuth2/OIDC FAPI-profile
+    authorization, MTLS, and consumer consent per the CDR regime, and are not in
+    scope for unauthenticated harvest.
+
+    Ownership note: formerly Wide Bay Australia and previously ASX-listed as ABA,
+    Auswide Bank is now a division of MyState Bank Limited, a wholly owned
+    subsidiary of the ASX-listed MyState Limited (ASX: MYS), following the 2025
+    merger. The CDR brand and PRD host remain under auswidebank.com.au.
+  specProvenanceNote: |
+    The harvested OpenAPI at openapi/auswide-bank-cds-banking-products-openapi.yml
+    is the Data Standards Body (DSB) CDR Banking API standard (title "CDR Banking
+    API", version 1.36.0, contact contact@dsb.gov.au), retrieved verbatim from
+    https://consumerdatastandardsaustralia.github.io/standards/includes/swagger/cds_banking.json
+    and converted from JSON to YAML without content change. It is the SHARED
+    Consumer Data Standards contract that all Australian banking data holders
+    conform to - it is NOT an Auswide-proprietary specification. Auswide does not
+    publish its own bank-specific OpenAPI. The spec's declared server
+    (https://mtls.dh.example.com/cds-au/v1) is the standard's placeholder; the
+    real Auswide public base is https://api.auswidebank.com.au/openbanking/cds-au/v1.
+    The spec includes the two public PRD paths (/banking/products,
+    /banking/products/{productId}) plus the authenticated banking endpoints.
+  authModel:
+    productReferenceData: none (public, unauthenticated) - x-v header version negotiation only
+    consumerData: OAuth2 / OIDC (CDR FAPI profile), MTLS, ADR accreditation + consumer consent
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1
+      documented: true
+      note: Public PRD confirmed via GET /banking/products (HTTP 200, x-v 4, 28 products).
+  endpointsConfirmedRest:
+    - GET https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/products
+  endpointsStandardNotPublic:
+    - GET /banking/products/{productId} (public per CDS; negotiates a version other than x-v 4 - returned 406 UnsupportedVersion on x-v 4)
+    - GET /banking/accounts (authenticated - ADR/consent required)
+    - GET /banking/accounts/{accountId}/transactions (authenticated - ADR/consent required)
+    - GET /banking/payments/scheduled (authenticated - ADR/consent required)
+sources:
+  - url: https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/products
+    type: APIReference
+    note: Live PRD endpoint. HTTP 200 with x-v 4; 28 products; requires x-v header (x-v 1-3 returns 406 UnsupportedVersion, Available 4).
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+    note: Auswide's human-facing open banking / CDR information page (HTTP 200).
+  - url: https://consumerdatastandardsaustralia.github.io/standards/includes/swagger/cds_banking.json
+    type: OpenAPI
+    note: DSB Consumer Data Standards banking OpenAPI (CDR Banking API v1.36.0); shared standard harvested verbatim.
+  - url: https://github.com/LukePrior/Australian-Open-Banking-Data-Database
+    type: Reference
+    note: Community CDR data-holder register that lists Auswide Bank Ltd public base https://api.auswidebank.com.au/openbanking/cds-au/v1; independently confirmed live.
+actions:
+  openapiPath: openapi/auswide-bank-cds-banking-products-openapi.yml
+  apisYmlUpdated: true
+  reason: |
+    Bootstrapped the Auswide Bank provider profile with its confirmed live public
+    CDR Product Reference Data API and the shared DSB CDS banking OpenAPI. No
+    proprietary bank spec and no developer portal exist to harvest.
