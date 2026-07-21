@@ -23,7 +23,7 @@ tags:
 - Product Reference Data
 - ADI
 created: '2026-07-20'
-modified: '2026-07-20'
+modified: '2026-07-21'
 specificationVersion: '0.19'
 apis:
 - aid: auswide-bank:auswide-bank-cdr-product-reference-data-api
@@ -47,8 +47,116 @@ apis:
   description: Public, unauthenticated Consumer Data Right Product Reference Data
     (PRD) API exposing Auswide Bank's publicly available banking products (accounts,
     term deposits, home loans, credit cards) via the standard CDS endpoints GET
-    /banking/products and GET /banking/products/{productId}. Confirmed live (HTTP
-    200, x-v 4, 28 products) at https://api.auswidebank.com.au/openbanking/cds-au/v1.
+    /banking/products and GET /banking/products/{productId}. No consumer authorization
+    or ADR accreditation is required for this surface. Live CDR host confirmed at
+    https://api.auswidebank.com.au/openbanking/cds-au/v1 (probed 2026-07-20 HTTP 200,
+    x-v 4, 28 products; re-probe 2026-07-21 returned HTTP 500, transient server
+    error on the data holder). The OpenAPI is the shared DSB Consumer Data Standards
+    CDR Banking API v1.36.0, not a bank-proprietary spec.
+- aid: auswide-bank:auswide-bank-cdr-accounts-balances-api
+  name: Auswide Bank CDR Accounts & Balances API
+  tags:
+  - CDR
+  - Open Banking
+  - Accounts
+  - Balances
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.auswidebank.com.au/help/banking-support/open-banking/
+  baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/accounts
+  properties:
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
+    type: APIReference
+  - url: openapi/auswide-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right accounts and balances surface
+    exposing GET /banking/accounts, GET /banking/accounts/balances (bulk balances),
+    GET /banking/accounts/{accountId}/balance, and GET /banking/accounts/{accountId}
+    (account detail). Unlike the public Product Reference Data API, these endpoints
+    require an active CDR consumer consent flowing through an Australian accredited
+    data recipient (ADR) over the MTLS-secured, OIDC/FAPI-protected CDR channel;
+    Auswide Bank is legally required to implement them as an ADI data holder. Defined
+    by the shared DSB Consumer Data Standards CDR Banking API v1.36.0.
+- aid: auswide-bank:auswide-bank-cdr-transactions-api
+  name: Auswide Bank CDR Transactions API
+  tags:
+  - CDR
+  - Open Banking
+  - Transactions
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.auswidebank.com.au/help/banking-support/open-banking/
+  baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/accounts
+  properties:
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
+    type: APIReference
+  - url: openapi/auswide-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right transactions surface exposing
+    GET /banking/accounts/{accountId}/transactions and GET /banking/accounts/{accountId}/transactions/{transactionId}
+    (transaction detail). These endpoints return dated debit and credit history for
+    a consented account and require an active CDR consumer consent through an
+    accredited data recipient over the MTLS/FAPI-secured CDR channel. Auswide Bank
+    implements them as a mandatory ADI data holder obligation. Defined by the shared
+    DSB Consumer Data Standards CDR Banking API v1.36.0.
+- aid: auswide-bank:auswide-bank-cdr-direct-debits-scheduled-payments-api
+  name: Auswide Bank CDR Direct Debits & Scheduled Payments API
+  tags:
+  - CDR
+  - Open Banking
+  - Direct Debits
+  - Scheduled Payments
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.auswidebank.com.au/help/banking-support/open-banking/
+  baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/accounts/direct-debits
+  properties:
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
+    type: APIReference
+  - url: openapi/auswide-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right direct debits and scheduled
+    payments surface exposing GET /banking/accounts/{accountId}/direct-debits, the
+    bulk GET /banking/accounts/direct-debits, GET /banking/accounts/{accountId}/payments/scheduled,
+    and the bulk GET /banking/payments/scheduled. These endpoints disclose authorised
+    direct debit arrangements and future-dated scheduled payments for consented
+    accounts, and require an active CDR consumer consent through an accredited data
+    recipient over the MTLS/FAPI-secured CDR channel. Defined by the shared DSB
+    Consumer Data Standards CDR Banking API v1.36.0.
+- aid: auswide-bank:auswide-bank-cdr-payees-api
+  name: Auswide Bank CDR Payees API
+  tags:
+  - CDR
+  - Open Banking
+  - Payees
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.auswidebank.com.au/help/banking-support/open-banking/
+  baseURL: https://api.auswidebank.com.au/openbanking/cds-au/v1/banking/payees
+  properties:
+  - url: https://www.auswidebank.com.au/help/banking-support/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
+    type: APIReference
+  - url: openapi/auswide-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right payees surface exposing GET
+    /banking/payees and GET /banking/payees/{payeeId} (payee detail). These endpoints
+    return the saved payee list a consumer has consented to share, covering domestic,
+    international, and BPAY payee details, and require an active CDR consumer consent
+    through an accredited data recipient over the MTLS/FAPI-secured CDR channel.
+    Auswide Bank implements them as a mandatory ADI data holder obligation. Defined
+    by the shared DSB Consumer Data Standards CDR Banking API v1.36.0.
 common:
 - type: DomainSecurity
   url: security/auswide-bank-domain-security.yml
