@@ -1,0 +1,26 @@
+{
+  "provider": "auswide-bank",
+  "sources": [
+    "auswide-bank-banking-account-balances-api-openapi.yml",
+    "auswide-bank-banking-account-direct-debits-api-openapi.yml",
+    "auswide-bank-banking-account-scheduled-payments-api-openapi.yml",
+    "auswide-bank-banking-account-transactions-api-openapi.yml",
+    "auswide-bank-banking-accounts-api-openapi.yml",
+    "auswide-bank-banking-payees-api-openapi.yml",
+    "auswide-bank-banking-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "auswide-bank-banking-account-balances-api-openapi.yml",
+    "auswide-bank-banking-account-direct-debits-api-openapi.yml",
+    "auswide-bank-banking-account-scheduled-payments-api-openapi.yml",
+    "auswide-bank-banking-account-transactions-api-openapi.yml",
+    "auswide-bank-banking-accounts-api-openapi.yml",
+    "auswide-bank-banking-payees-api-openapi.yml",
+    "auswide-bank-banking-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
