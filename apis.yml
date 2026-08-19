@@ -36,7 +36,7 @@ tags:
 - ADI
 created: '2026-07-20'
 modified: '2026-07-21'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: auswide-bank:auswide-bank-banking-account-balances-api
   name: Auswide Bank Banking Account Balances API
