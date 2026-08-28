@@ -12,6 +12,18 @@ description: Auswide Bank Ltd is an Australian authorised deposit-taking institu
   unauthenticated Product Reference Data (PRD) API conforming to the DSB Consumer
   Data Standards, alongside the accredited-data-recipient consumer data sharing
   channels required of every Australian bank.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
