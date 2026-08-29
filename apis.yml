@@ -149,6 +149,9 @@ apis:
   - type: APIReference
     url: https://consumerdatastandardsaustralia.github.io/standards/#banking-apis
 common:
+- type: CapabilityMap
+  url: capabilities/auswide-bank-capability-edges.yml
+  name: Auswide Bank Business Capability Map
 - type: DomainSecurity
   url: security/auswide-bank-domain-security.yml
 - type: Authentication
