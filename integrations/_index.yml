@@ -23,3 +23,33 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
+- slug: auswide-bank-apra-authorised-deposit-taking-institutions
+  label: APRA authorised deposit-taking institutions
+  partner_name: APRA authorised deposit-taking institutions
+  category: Australian authorised deposit-taking institution (APRA)
+  type: register
+  channel: regulator-register
+  evidence: https://www.apra.gov.au/register-of-authorised-deposit-taking-institutions
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: APRA authorised deposit-taking institutions
+    spec_file: null
+    standard: null
+    role: authorised-deposit-taking-institution
+    registrations:
+    - registered_name: Auswide Bank Ltd
+      licences:
+      - Australian-owned authorised deposit-taking institutions
+      register_country: AU
+      matched_domain: auswidebank.com.au
+      matched_by: domain
+      section: Australian-owned authorised deposit-taking institutions
+      identity: wikidata Q22906565 'Auswide Bank' P856 http://www.auswidebank.com.au
+    signal_note: 'participation only: a regulator licence / authorisation listing; no API conformance is published
+      by this register'
+    detected_by: sweep-australia-afs-adi-registers.py
+    detected: '2026-10-22'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null

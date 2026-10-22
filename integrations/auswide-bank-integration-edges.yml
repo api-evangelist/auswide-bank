@@ -11,6 +11,10 @@ checked:
 - https://monid.ai/tools/auswide-bank
 - https://n8n.io/integrations/auswide-bank/
 - https://zapier.com/apps/auswide-bank/integrations
+- https://data.gov.au/data/dataset/asic-afs-licensee
+- https://data.gov.au/data/dataset/asic-credit-licensee
+- https://www.apra.gov.au/register-of-authorised-deposit-taking-institutions
+- https://www.apra.gov.au/registers/list-registered-general-insurers
 summary: null
 marketplace_apps: []
 edges:
@@ -31,4 +35,34 @@ edges:
     api_families: null
     detected_by: sweep-standard-registers.py
     detected: '2026-10-14'
+- partner_name: APRA authorised deposit-taking institutions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.apra.gov.au/register-of-authorised-deposit-taking-institutions
+  category: Australian authorised deposit-taking institution (APRA)
+  contract_reference:
+    register: APRA authorised deposit-taking institutions
+    spec_file: null
+    standard: null
+    role: authorised-deposit-taking-institution
+    registrations:
+    - registered_name: Auswide Bank Ltd
+      licences:
+      - Australian-owned authorised deposit-taking institutions
+      register_country: AU
+      matched_domain: auswidebank.com.au
+      matched_by: domain
+      section: Australian-owned authorised deposit-taking institutions
+      identity: wikidata Q22906565 'Auswide Bank' P856 http://www.auswidebank.com.au
+    signal_note: 'participation only: a regulator licence / authorisation listing; no API conformance is published
+      by this register'
+    detected_by: sweep-australia-afs-adi-registers.py
+    detected: '2026-10-22'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-australia-afs-adi-registers.py
+  first_seen: '2026-10-22'
 templates: []
